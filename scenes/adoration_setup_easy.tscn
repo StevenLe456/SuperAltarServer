@@ -20,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://dfjye8jpg8w6w" path="res://sprites/fr_jose.jpg" id="15_16nw4"]
 [ext_resource type="Texture2D" uid="uid://cawlqjpmsnbmj" path="res://sprites/altar-candle.png" id="16_tih5u"]
 [ext_resource type="Texture2D" uid="uid://cpf4o4w2rl8i2" path="res://sprites/candle-lighter.png" id="20_x8wdr"]
+[ext_resource type="AudioStream" uid="uid://d1hewbc25hc8y" path="res://sounds/kneel.wav" id="21_gmniu"]
+[ext_resource type="AudioStream" uid="uid://cqb6hye6rib" path="res://sounds/o_salutaris.ogg" id="21_oiyax"]
+[ext_resource type="AudioStream" uid="uid://df6x7ac8bmlqv" path="res://sounds/pickup.wav" id="22_fhscb"]
+[ext_resource type="AudioStream" uid="uid://cjrwnep27b247" path="res://sounds/enter.wav" id="23_gmniu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu1us"]
 size = Vector2(1159.5, 180)
@@ -453,6 +457,18 @@ offset_right = 231.0
 offset_bottom = 122.0
 texture = ExtResource("15_16nw4")
 expand_mode = 1
+
+[node name="Kneel" type="AudioStreamPlayer" parent="." unique_id=1254927609]
+stream = ExtResource("21_gmniu")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1892950980]
+stream = ExtResource("21_oiyax")
+
+[node name="PickUp" type="AudioStreamPlayer" parent="." unique_id=704888467]
+stream = ExtResource("22_fhscb")
+
+[node name="Enter" type="AudioStreamPlayer" parent="." unique_id=137794508]
+stream = ExtResource("23_gmniu")
 
 [connection signal="body_entered" from="Sacristy/Sink" to="." method="_on_sink_body_entered"]
 [connection signal="body_exited" from="Sacristy/Sink" to="." method="_on_sink_body_exited"]

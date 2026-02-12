@@ -4,6 +4,9 @@ extends Node2D
 @onready var chara: AltarServer = $AltarServer
 @onready var dialogue: Label = $Control/ColorRect2/Label
 @onready var fr_jose_ico: TextureRect = $Control/ColorRect2/TextureRect
+@onready var pick = $PickUp
+@onready var enter = $Enter
+@onready var kneel = $Kneel
 var state: String
 var awaiting_father: bool = false
 var genuflect: bool = false
@@ -26,6 +29,7 @@ func _ready() -> void:
 	$Sacristy.process_mode = Node.PROCESS_MODE_DISABLED
 	$Control/ColorRect.visible = false
 	state = "start1"
+	$BGMusic.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +40,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect1":
 		dialogue.text = "Press G to genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "start2"
 			genuflect = false
 	elif state == "start2":
@@ -56,6 +61,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect2":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "lavabo2"
 			genuflect = false
 	elif state == "lavabo2":
@@ -65,6 +71,7 @@ func _process(delta: float) -> void:
 	elif state == "lavabo3":
 		dialogue.text = "Press ENTER to pick up lavabo bowl."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "lavabo4"
 			chara.inventory = "lavabo"
 			$Sanctuary/Lavabo.visible = false
@@ -78,6 +85,7 @@ func _process(delta: float) -> void:
 	elif state == "lavabo5":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "lavabo6"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -92,6 +100,7 @@ func _process(delta: float) -> void:
 	elif state == "lavabo7":
 		dialogue.text = "Press ENTER to empty the lavabo bowl."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "lavabo8"
 	elif state == "lavabo8":
 		dialogue.text = "Place the lavabo bowl back on the credence table."
@@ -100,6 +109,7 @@ func _process(delta: float) -> void:
 	elif state == "lavabo9":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "lavabo10"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -114,6 +124,7 @@ func _process(delta: float) -> void:
 	elif state == "lavabo11":
 		dialogue.text = "Press ENTER to place the lavabo bowl back onto the credence table."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			$Control/ColorRect.visible = false
 			$Control/ColorRect/Label.text = ""
 			state = "father2"
@@ -127,6 +138,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect3":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "father3"
 			genuflect = false
 	elif state == "father3":
@@ -147,6 +159,7 @@ func _process(delta: float) -> void:
 	elif state == "missal2":
 		dialogue.text = "Press ENTER to pick up the missal."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "missal3"
 			chara.inventory = "missal"
 			$Sanctuary/Altar/Missal.visible = false
@@ -160,6 +173,7 @@ func _process(delta: float) -> void:
 	elif state == "missal4":
 		dialogue.text = "Press ENTER to place the missal onto the chair."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "father5"
 			$Control/ColorRect.visible = false
 			$Control/ColorRect/Label.text = ""
@@ -183,6 +197,7 @@ func _process(delta: float) -> void:
 	elif state == "crucifix2":
 		dialogue.text = "Press ENTER to pick up the altar crucifix."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "crucifix3"
 			chara.inventory = "altar-crucifix"
 			$Sanctuary/Altar/AltarCrucifix.visible = false
@@ -196,6 +211,7 @@ func _process(delta: float) -> void:
 	elif state == "crucifix4":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "crucifix5"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -210,6 +226,7 @@ func _process(delta: float) -> void:
 	elif state == "crucifix6":
 		dialogue.text = "Press ENTER to place the altar crucifix on the counter."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "father7"
 			$Control/ColorRect.visible = false
 			$Control/ColorRect/Label.text = ""
@@ -223,6 +240,7 @@ func _process(delta: float) -> void:
 	elif state == "father8":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "father9"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -237,6 +255,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect4":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "father10"
 			genuflect = false
 	elif state == "father10":
@@ -257,6 +276,7 @@ func _process(delta: float) -> void:
 	elif state == "chalice2":
 		dialogue.text = "Press ENTER to pick up the dressed chalice."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "chalice3"
 			chara.inventory = "dressed-chalice"
 			$Sanctuary/Altar/DressedChalice.visible = false
@@ -270,6 +290,7 @@ func _process(delta: float) -> void:
 	elif state == "chalice4":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "chalice5"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -284,6 +305,7 @@ func _process(delta: float) -> void:
 	elif state == "chalice6":
 		dialogue.text = "Press ENTER to place the chalice on the counter."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "father12"
 			$Control/ColorRect.visible = false
 			$Control/ColorRect/Label.text = ""
@@ -297,6 +319,7 @@ func _process(delta: float) -> void:
 	elif state == "father13":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "father14"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -311,6 +334,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect5":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "father15"
 			genuflect = false
 	elif state == "father15":
@@ -331,6 +355,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect6":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "monstrance2"
 			genuflect = false
 	elif state == "monstrance2":
@@ -340,6 +365,7 @@ func _process(delta: float) -> void:
 	elif state == "monstrance3":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "monstrance4"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -354,6 +380,7 @@ func _process(delta: float) -> void:
 	elif state == "monstrance5":
 		dialogue.text = "Press ENTER to take the monstrance."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			chara.inventory = "monstrance"
 			$Sacristy/Monstrance.visible = false
 			$Control/ColorRect.visible = true
@@ -367,6 +394,7 @@ func _process(delta: float) -> void:
 	elif state == "monstrance7":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "monstrance8"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -381,6 +409,7 @@ func _process(delta: float) -> void:
 	elif state == "monstrance9":
 		dialogue.text = "Press ENTER to place the monstrance on the corporal."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "father17"
 			$Sanctuary/Altar/Monstrance.visible = true
 			chara.inventory = "temp"
@@ -405,6 +434,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect7":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "candles2"
 			genuflect = false
 	elif state == "candles2":
@@ -414,6 +444,7 @@ func _process(delta: float) -> void:
 	elif state == "candles3":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "candles4"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -428,6 +459,7 @@ func _process(delta: float) -> void:
 	elif state == "candles5":
 		dialogue.text = "Press ENTER to pick up the candles."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			state = "candles6"
 			chara.inventory = "candles"
 			$Sacristy/AltarCandle3.visible = false
@@ -442,6 +474,7 @@ func _process(delta: float) -> void:
 	elif state == "candles7":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "candles8"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -456,6 +489,7 @@ func _process(delta: float) -> void:
 	elif state == "candles9":
 		dialogue.text = "Press ENTER to place the candles on the altar."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			$Sanctuary/Altar/AltarCandle1.visible = true
 			$Sanctuary/Altar/AltarCandle2.visible = true
 			chara.inventory = "temp"
@@ -481,6 +515,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect8":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "light2"
 			genuflect = false
 	elif state == "light2":
@@ -490,6 +525,7 @@ func _process(delta: float) -> void:
 	elif state == "light3":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "light4"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -504,6 +540,7 @@ func _process(delta: float) -> void:
 	elif state == "light5":
 		dialogue.text = "Press ENTER to get the candle lighter."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			chara.inventory = "candle-lighter"
 			$Sacristy/CandleLighter.visible = false
 			$Control/ColorRect.visible = true
@@ -517,6 +554,7 @@ func _process(delta: float) -> void:
 	elif state == "light7":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "light8"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -531,6 +569,7 @@ func _process(delta: float) -> void:
 	elif state == "light9":
 		dialogue.text = "Press ENTER to light the altar candles."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			$Sanctuary/Altar/AltarCandle1.play("lit")
 			$Sanctuary/Altar/AltarCandle2.play("lit")
 			state = "light10"
@@ -541,6 +580,7 @@ func _process(delta: float) -> void:
 	elif state == "light11":
 		dialogue.text = "Press ENTER to go into the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "light12"
 			$Sanctuary.visible = false 
 			$Sanctuary.process_mode = Node.PROCESS_MODE_DISABLED
@@ -555,6 +595,7 @@ func _process(delta: float) -> void:
 	elif state == "light13":
 		dialogue.text = "Press ENTER to put the candle lighter back."
 		if Input.is_action_just_pressed("ui_accept"):
+			pick.play()
 			$Sacristy/CandleLighter.visible = true
 			chara.inventory = ""
 			$Control/ColorRect.visible = false
@@ -567,6 +608,7 @@ func _process(delta: float) -> void:
 	elif state == "father22":
 		dialogue.text = "Press ENTER to exit the sacristy."
 		if Input.is_action_just_pressed("ui_accept"):
+			enter.play()
 			state = "father23"
 			chara.global_position = Vector2(165, 491)
 			$Sanctuary.visible = true 
@@ -582,6 +624,7 @@ func _process(delta: float) -> void:
 	elif state == "genuflect9":
 		dialogue.text = "Genuflect in front of the tabernacle."
 		if chara.genuflected:
+			kneel.play()
 			state = "father24"
 			genuflect = false
 	elif state == "father24":
