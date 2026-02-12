@@ -7,6 +7,7 @@ extends Node2D
 @onready var pick = $PickUp
 @onready var enter = $Enter
 @onready var kneel = $Kneel
+@onready var mobile = $MobileButtons
 var state: String
 var awaiting_father: bool = false
 var genuflect: bool = false
@@ -23,6 +24,8 @@ var candle_hook: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		mobile.visible = true
 	$Sanctuary.visible = true
 	$Sanctuary.process_mode = Node.PROCESS_MODE_ALWAYS
 	$Sacristy.visible = false

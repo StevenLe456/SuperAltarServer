@@ -24,6 +24,17 @@
 [ext_resource type="AudioStream" uid="uid://cqb6hye6rib" path="res://sounds/o_salutaris.ogg" id="21_oiyax"]
 [ext_resource type="AudioStream" uid="uid://df6x7ac8bmlqv" path="res://sounds/pickup.wav" id="22_fhscb"]
 [ext_resource type="AudioStream" uid="uid://cjrwnep27b247" path="res://sounds/enter.wav" id="23_gmniu"]
+[ext_resource type="Texture2D" uid="uid://4mkfvu3idcjf" path="res://sprites/up.png" id="25_bpcht"]
+[ext_resource type="Texture2D" uid="uid://cvhhmjenqbdxm" path="res://sprites/up_pressed.png" id="26_e8ihq"]
+[ext_resource type="Texture2D" uid="uid://cy8h08c12mekm" path="res://sprites/left.png" id="27_xkdh3"]
+[ext_resource type="Texture2D" uid="uid://bux6g05r1j3rb" path="res://sprites/left_pressed.png" id="28_awgn3"]
+[ext_resource type="Texture2D" uid="uid://dmc0qpxrkhqfn" path="res://sprites/right.png" id="29_2jvnt"]
+[ext_resource type="Texture2D" uid="uid://brjcqixlkkkmd" path="res://sprites/right_pressed.png" id="30_yfra5"]
+[ext_resource type="Texture2D" uid="uid://cc54iboqvsphp" path="res://sprites/down.png" id="31_7psvc"]
+[ext_resource type="Texture2D" uid="uid://cs5m0xcofanif" path="res://sprites/down_pressed.png" id="32_m2q5o"]
+[ext_resource type="Texture2D" uid="uid://bl4svmc3gn18c" path="res://sprites/g.png" id="33_pr4dl"]
+[ext_resource type="Texture2D" uid="uid://chkhnkuwqd680" path="res://sprites/enter.png" id="34_8efih"]
+[ext_resource type="Texture2D" uid="uid://bv2kr4d4mhh7l" path="res://sprites/enter_pressed.png" id="35_s2nq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu1us"]
 size = Vector2(1159.5, 180)
@@ -469,6 +480,44 @@ stream = ExtResource("22_fhscb")
 
 [node name="Enter" type="AudioStreamPlayer" parent="." unique_id=137794508]
 stream = ExtResource("23_gmniu")
+
+[node name="MobileButtons" type="Node2D" parent="." unique_id=878868161]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MobileButtons" unique_id=281325918]
+position = Vector2(91, 18)
+texture_normal = ExtResource("25_bpcht")
+texture_pressed = ExtResource("26_e8ihq")
+action = "ui_up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="MobileButtons" unique_id=1380906051]
+position = Vector2(44, 89)
+texture_normal = ExtResource("27_xkdh3")
+texture_pressed = ExtResource("28_awgn3")
+action = "ui_left"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="MobileButtons" unique_id=1221318607]
+position = Vector2(129, 89)
+texture_normal = ExtResource("29_2jvnt")
+texture_pressed = ExtResource("30_yfra5")
+action = "ui_right"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="MobileButtons" unique_id=1169678237]
+position = Vector2(89, 158)
+texture_normal = ExtResource("31_7psvc")
+texture_pressed = ExtResource("32_m2q5o")
+action = "ui_down"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="MobileButtons" unique_id=965941531]
+position = Vector2(8, 18)
+texture_normal = ExtResource("33_pr4dl")
+action = "genuflect"
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="MobileButtons" unique_id=941014640]
+position = Vector2(173, 18)
+texture_normal = ExtResource("34_8efih")
+texture_pressed = ExtResource("35_s2nq0")
+action = "ui_accept"
 
 [connection signal="body_entered" from="Sacristy/Sink" to="." method="_on_sink_body_entered"]
 [connection signal="body_exited" from="Sacristy/Sink" to="." method="_on_sink_body_exited"]
