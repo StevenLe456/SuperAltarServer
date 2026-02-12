@@ -482,7 +482,7 @@ stream = ExtResource("22_fhscb")
 stream = ExtResource("23_gmniu")
 
 [node name="MobileButtons" type="Node2D" parent="." unique_id=878868161]
-visible = false
+position = Vector2(458, 163)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="MobileButtons" unique_id=281325918]
 position = Vector2(91, 18)
