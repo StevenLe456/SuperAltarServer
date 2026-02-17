@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		anim.play(anim_play)
 		prev_anim = anim_play
 	else:
-		if (Input.is_action_just_pressed("genuflect")):
+		if Input.is_action_just_pressed("genuflect"):
 			genuflecting = true
 		else:
 			move_and_collide(Vector2(0, 0))

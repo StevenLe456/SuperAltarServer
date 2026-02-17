@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://dcipqcjxlx6cp"]
+
+[ext_resource type="Texture2D" uid="uid://byuwv73tqbajy" path="res://sprites/bg.png" id="1_wp30s"]
+[ext_resource type="Texture2D" uid="uid://bn3grk2gpcjgi" path="res://sprites/credence-table.png" id="2_fu2oe"]
+[ext_resource type="Texture2D" uid="uid://cfl4t0dbrgxl" path="res://sprites/bowl.png" id="3_4drtg"]
+[ext_resource type="Texture2D" uid="uid://ckwlu5gb45kyn" path="res://sprites/chair.png" id="4_icpqp"]
+[ext_resource type="Texture2D" uid="uid://d1fux37bmj2h3" path="res://sprites/father-jose.png" id="5_q0jcs"]
+[ext_resource type="Texture2D" uid="uid://brirc7ta1k7v8" path="res://sprites/missal.png" id="6_bg2yv"]
+[ext_resource type="Texture2D" uid="uid://osuhn3hf2vdb" path="res://sprites/unlit-candle.png" id="7_3gxp6"]
+[ext_resource type="Texture2D" uid="uid://bvvt438lufdfb" path="res://sprites/altar-table.png" id="8_rbiox"]
+[ext_resource type="Texture2D" uid="uid://l7tc721qq24g" path="res://sprites/candle.png" id="9_goas2"]
+[ext_resource type="Texture2D" uid="uid://c2vhj3rhvfdlu" path="res://sprites/corporal.png" id="10_myjtf"]
+[ext_resource type="Texture2D" uid="uid://c5lu0mr5cq8rf" path="res://sprites/dressed-chalice.png" id="11_m44ab"]
+[ext_resource type="Texture2D" uid="uid://deslu5ro7xy40" path="res://sprites/altar-crucifix.png" id="12_wwk1g"]
+[ext_resource type="Texture2D" uid="uid://ddvvolac5p6er" path="res://sprites/monstrance.png" id="13_s6cpn"]
+[ext_resource type="Texture2D" uid="uid://cawlqjpmsnbmj" path="res://sprites/altar-candle.png" id="14_p3svp"]
+[ext_resource type="Script" uid="uid://dt6mp712kuput" path="res://scripts/genuflect.gd" id="15_88lgr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8wdr"]
+atlas = ExtResource("14_p3svp")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiyax"]
+atlas = ExtResource("14_p3svp")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu1us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8wdr")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiyax")
+}],
+"loop": true,
+"name": &"unlit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a26kp"]
+size = Vector2(1178, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfb8"]
+size = Vector2(344, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo1aw"]
+size = Vector2(369.706, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bela"]
+size = Vector2(143.5, 258)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16nw4"]
+size = Vector2(347, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmrxn"]
+size = Vector2(1165, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxuul"]
+size = Vector2(14, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgkyg"]
+size = Vector2(4, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tih5u"]
+size = Vector2(165, 145.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8wdr"]
+size = Vector2(227.5, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiyax"]
+size = Vector2(86, 412)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj1i3"]
+size = Vector2(196, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkrn8"]
+size = Vector2(227, 79.5632)
+
+[node name="Sanctuary" type="Node2D" unique_id=1335264300]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=742829446]
+position = Vector2(575.49994, 324.49997)
+scale = Vector2(1.2031249, 0.6802083)
+texture = ExtResource("1_wp30s")
+
+[node name="CredenceTable" type="Sprite2D" parent="." unique_id=1046382360]
+position = Vector2(278, 258)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_fu2oe")
+
+[node name="Lavabo" type="Sprite2D" parent="." unique_id=1737372408]
+position = Vector2(319, 291)
+scale = Vector2(0.2402345, 0.28515634)
+texture = ExtResource("3_4drtg")
+
+[node name="Chair" type="Sprite2D" parent="." unique_id=1417327990]
+position = Vector2(973, 376)
+texture = ExtResource("4_icpqp")
+
+[node name="FatherJose" type="Sprite2D" parent="." unique_id=836751701]
+position = Vector2(1025, 508)
+scale = Vector2(0.7, 1)
+texture = ExtResource("5_q0jcs")
+
+[node name="Missal" type="Sprite2D" parent="." unique_id=559941909]
+visible = false
+position = Vector2(929.00006, 306)
+scale = Vector2(0.46875, 0.3828125)
+texture = ExtResource("6_bg2yv")
+
+[node name="Altar" type="Node2D" parent="." unique_id=1785246972]
+z_index = 1
+position = Vector2(608, 323)
+scale = Vector2(1.2031249, 0.6802083)
+
+[node name="UnlitCandle3" type="Sprite2D" parent="Altar" unique_id=222727294]
+position = Vector2(-110.12985, 235.95721)
+scale = Vector2(0.58181816, 1.0290962)
+texture = ExtResource("7_3gxp6")
+
+[node name="UnlitCandle4" type="Sprite2D" parent="Altar" unique_id=438634608]
+position = Vector2(71.06497, 235.95715)
+scale = Vector2(0.58181816, 1.0290962)
+texture = ExtResource("7_3gxp6")
+
+[node name="UnlitCandle" type="Sprite2D" parent="Altar" unique_id=1051385946]
+position = Vector2(-127.58438, 266.83008)
+scale = Vector2(0.58181816, 1.0290962)
+texture = ExtResource("7_3gxp6")
+
+[node name="UnlitCandle2" type="Sprite2D" parent="Altar" unique_id=584800598]
+position = Vector2(87.688385, 263.88977)
+scale = Vector2(0.5818183, 1.0290965)
+texture = ExtResource("7_3gxp6")
+
+[node name="AltarTable" type="Sprite2D" parent="Altar" unique_id=493470640]
+position = Vector2(-23.688263, 284.47168)
+scale = Vector2(0.83116895, 1.4701378)
+texture = ExtResource("8_rbiox")
+
+[node name="Candle" type="Sprite2D" parent="Altar" unique_id=2056014417]
+position = Vector2(-147.53244, 305.05365)
+scale = Vector2(0.5818183, 1.0290965)
+texture = ExtResource("9_goas2")
+
+[node name="Candle2" type="Sprite2D" parent="Altar" unique_id=706539166]
+position = Vector2(107.636444, 300.64325)
+scale = Vector2(0.5818183, 1.0290965)
+texture = ExtResource("9_goas2")
+
+[node name="Corporal" type="Sprite2D" parent="Altar" unique_id=1620509239]
+position = Vector2(-26.597382, 201.40892)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_myjtf")
+
+[node name="DressedChalice" type="Sprite2D" parent="Altar" unique_id=2087526227]
+position = Vector2(-79.37659, 162.45026)
+scale = Vector2(0.3324676, 0.58805513)
+texture = ExtResource("11_m44ab")
+
+[node name="Missal" type="Sprite2D" parent="Altar" unique_id=1707664863]
+position = Vector2(19.1169, 141.13321)
+scale = Vector2(0.4, 0.708)
+texture = ExtResource("6_bg2yv")
+
+[node name="AltarCrucifix" type="Sprite2D" parent="Altar" unique_id=1435909691]
+position = Vector2(-26.181763, 197.73358)
+scale = Vector2(0.3324676, 0.58805513)
+texture = ExtResource("12_wwk1g")
+
+[node name="Monstrance" type="Sprite2D" parent="Altar" unique_id=1399083657]
+visible = false
+position = Vector2(-22.441544, 135.25266)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_s6cpn")
+
+[node name="AltarCandle1" type="AnimatedSprite2D" parent="Altar" unique_id=1031911307]
+visible = false
+position = Vector2(-81.45456, 186.7075)
+scale = Vector2(0.2, 0.5)
+sprite_frames = SubResource("SpriteFrames_eu1us")
+animation = &"unlit"
+
+[node name="AltarCandle2" type="AnimatedSprite2D" parent="Altar" unique_id=2130205860]
+visible = false
+position = Vector2(26.597404, 186.7075)
+scale = Vector2(0.2, 0.5)
+sprite_frames = SubResource("SpriteFrames_eu1us")
+animation = &"unlit"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=173904784]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1341671489]
+position = Vector2(576, 161)
+shape = SubResource("RectangleShape2D_a26kp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1443567116]
+position = Vector2(95.000015, 310)
+rotation = -0.90798813
+shape = SubResource("RectangleShape2D_xrfb8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2021651509]
+position = Vector2(1010.10913, 306.7963)
+rotation = 0.7548075
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_jo1aw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=469451726]
+position = Vector2(1022.25, 518)
+shape = SubResource("RectangleShape2D_0bela")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1474385599]
+position = Vector2(581.5, 559)
+shape = SubResource("RectangleShape2D_16nw4")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=328936911]
+position = Vector2(575, 652)
+shape = SubResource("RectangleShape2D_tmrxn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=2030899271]
+position = Vector2(-1, 549)
+shape = SubResource("RectangleShape2D_uxuul")
+
+[node name="Genuflect" type="Area2D" parent="." unique_id=80768912]
+script = ExtResource("15_88lgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Genuflect" unique_id=1934846601]
+position = Vector2(577, 273)
+shape = SubResource("RectangleShape2D_rgkyg")
+
+[node name="JoseZone" type="Area2D" parent="." unique_id=1533095517]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JoseZone" unique_id=2051889640]
+position = Vector2(869, 590.75)
+shape = SubResource("RectangleShape2D_tih5u")
+
+[node name="CredenceTable2" type="Area2D" parent="." unique_id=287589080]
+position = Vector2(-3, -66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CredenceTable2" unique_id=1526559868]
+position = Vector2(267.25, 353.5)
+shape = SubResource("RectangleShape2D_x8wdr")
+
+[node name="Sacristy" type="Area2D" parent="." unique_id=200073016]
+position = Vector2(-3, -66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sacristy" unique_id=1819775316]
+position = Vector2(43, 507)
+shape = SubResource("RectangleShape2D_oiyax")
+
+[node name="AltarTable" type="Area2D" parent="." unique_id=1261005338]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltarTable" unique_id=79538178]
+position = Vector2(579, 413.5)
+shape = SubResource("RectangleShape2D_hj1i3")
+
+[node name="Chair2" type="Area2D" parent="." unique_id=394632530]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2" unique_id=484904111]
+position = Vector2(906.7776, 406.75653)
+rotation = 0.8490959
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_qkrn8")
+
+[connection signal="body_entered" from="Genuflect" to="Genuflect" method="_on_body_entered"]
+[connection signal="body_exited" from="Genuflect" to="Genuflect" method="_on_body_exited"]

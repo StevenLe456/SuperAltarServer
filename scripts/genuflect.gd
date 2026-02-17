@@ -25,5 +25,5 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "AltarServer":
 		var chara = body as AltarServer
-		if chara.inventory == "" and chara.genuflected:
+		if chara.genuflected:
 			chara.genuflected = false

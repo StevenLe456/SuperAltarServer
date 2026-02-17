@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cfum2dvnaxmna"]
+
+[ext_resource type="PackedScene" uid="uid://txnjnn8b6onl" path="res://prefabs/sanctuary_medium_hard.tscn" id="1_5j5m7"]
+[ext_resource type="Script" uid="uid://cf623b6x4mpv2" path="res://scripts/adoration_setup_medium.gd" id="1_d4c1o"]
+[ext_resource type="PackedScene" uid="uid://bevybjpbmqv2p" path="res://prefabs/sacristy.tscn" id="2_5j5m7"]
+[ext_resource type="PackedScene" uid="uid://d2ulhve2nj6xv" path="res://prefabs/player.tscn" id="3_5j5m7"]
+[ext_resource type="PackedScene" uid="uid://cavqabjlgiulo" path="res://prefabs/mobile_buttons.tscn" id="5_r2l01"]
+[ext_resource type="AudioStream" uid="uid://cqb6hye6rib" path="res://sounds/o_salutaris.ogg" id="6_04spj"]
+[ext_resource type="AudioStream" uid="uid://cjrwnep27b247" path="res://sounds/enter.wav" id="7_2mkfo"]
+[ext_resource type="AudioStream" uid="uid://df6x7ac8bmlqv" path="res://sounds/pickup.wav" id="7_qr7sk"]
+
+[node name="AdorationSetupMedium" type="Node2D" unique_id=1175338330]
+script = ExtResource("1_d4c1o")
+
+[node name="Sanctuary" parent="." unique_id=1335264300 instance=ExtResource("1_5j5m7")]
+
+[node name="CollisionShape2D" parent="Sanctuary/CredenceTable2" parent_id_path=PackedInt32Array(1335264300, 287589080) index="0" unique_id=1526559868]
+position = Vector2(252.75, 353.5)
+
+[node name="Sacristy2" parent="." unique_id=2109761989 instance=ExtResource("2_5j5m7")]
+
+[node name="Counter" parent="Sacristy2" index="4" unique_id=219333851]
+position = Vector2(-7, -9)
+
+[node name="CollisionShape2D" parent="Sacristy2/Counter" index="0" unique_id=1211897610]
+position = Vector2(781.5, 397.25)
+
+[node name="Monstrance" parent="Sacristy2" index="7" unique_id=935792596]
+position = Vector2(477, 51)
+
+[node name="Shelf" parent="Sacristy2" index="8" unique_id=57258550]
+position = Vector2(-33, 0)
+
+[node name="CandleLighter" parent="Sacristy2" index="11" unique_id=793171399]
+position = Vector2(1030, 176)
+
+[node name="AltarServer" parent="." unique_id=1660358475 instance=ExtResource("3_5j5m7")]
+position = Vector2(237, 494)
+
+[node name="Control" type="Control" parent="." unique_id=1629311555]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 645.0
+
+[node name="Time" type="Label" parent="Control" unique_id=1547929471]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 546.0
+offset_right = 1170.0
+offset_bottom = 654.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+
+[node name="MobileButtons" parent="." unique_id=1220114027 instance=ExtResource("5_r2l01")]
+position = Vector2(9, 227)
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=801827192]
+stream = ExtResource("6_04spj")
+
+[node name="Enter" type="AudioStreamPlayer" parent="." unique_id=421629403]
+stream = ExtResource("7_2mkfo")
+
+[node name="PickUp" type="AudioStreamPlayer" parent="." unique_id=2035883176]
+stream = ExtResource("7_qr7sk")
+
+[connection signal="genuflect" from="Sanctuary/Genuflect" to="." method="_on_genuflect_genuflect"]
+[connection signal="body_entered" from="Sanctuary/CredenceTable2" to="." method="_on_credence_table_2_body_entered"]
+[connection signal="body_exited" from="Sanctuary/CredenceTable2" to="." method="_on_credence_table_2_body_exited"]
+[connection signal="body_entered" from="Sanctuary/Sacristy" to="." method="_on_sacristy_body_entered"]
+[connection signal="body_entered" from="Sanctuary/AltarTable" to="." method="_on_altar_table_body_entered"]
+[connection signal="body_exited" from="Sanctuary/AltarTable" to="." method="_on_altar_table_body_exited"]
+[connection signal="body_entered" from="Sanctuary/Chair2" to="." method="_on_chair_2_body_entered"]
+[connection signal="body_exited" from="Sanctuary/Chair2" to="." method="_on_chair_2_body_exited"]
+[connection signal="body_entered" from="Sacristy2/Sink" to="." method="_on_sink_body_entered"]
+[connection signal="body_exited" from="Sacristy2/Sink" to="." method="_on_sink_body_exited"]
+[connection signal="body_entered" from="Sacristy2/Door" to="." method="_on_door_body_entered"]
+[connection signal="body_entered" from="Sacristy2/Counter" to="." method="_on_counter_body_entered"]
+[connection signal="body_exited" from="Sacristy2/Counter" to="." method="_on_counter_body_exited"]
+[connection signal="body_entered" from="Sacristy2/Shelf" to="." method="_on_shelf_body_entered"]
+[connection signal="body_exited" from="Sacristy2/Shelf" to="." method="_on_shelf_body_exited"]
+[connection signal="body_entered" from="Sacristy2/CandleHook" to="." method="_on_candle_hook_body_entered"]
+[connection signal="body_exited" from="Sacristy2/CandleHook" to="." method="_on_candle_hook_body_exited"]
+
+[editable path="Sanctuary"]
+[editable path="Sacristy2"]

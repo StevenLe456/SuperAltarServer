@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Super Altar Server"
-run/main_scene="uid://lqahtfc02dfs"
+run/main_scene="uid://nq8mjterpic5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/simpleboards_plugin/plugin.cfg")
 
 [input]
 

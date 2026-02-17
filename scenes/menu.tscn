@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://nq8mjterpic5"]
+
+[ext_resource type="Script" uid="uid://bbdlisdf1pwrs" path="res://scripts/menu.gd" id="1_yqeox"]
+
+[node name="Menu" type="Control" unique_id=1013075166]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yqeox")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1287284674]
+layout_mode = 0
+offset_right = 1178.0
+offset_bottom = 676.0
+color = Color(1, 0.64705884, 0.14901961, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=6160153]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 257.0
+theme_override_font_sizes/font_size = 80
+text = "Choose a difficulty level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1025616561]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 225.0
+offset_right = 753.0
+offset_bottom = 359.0
+theme_override_font_sizes/font_size = 40
+text = "Easy"
+
+[node name="Button2" type="Button" parent="ColorRect" unique_id=265283873]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 428.0
+offset_right = 753.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 40
+text = "Competitive"
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]

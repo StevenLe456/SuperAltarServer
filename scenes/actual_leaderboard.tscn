@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b1uxhsc40tc5c"]
+
+[ext_resource type="Script" uid="uid://y55d2swweqg5" path="res://scripts/actual_leaderboard.gd" id="1_v1ugu"]
+
+[node name="ActualLeaderboard" type="Control" unique_id=1265641898]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v1ugu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1599194728]
+layout_mode = 0
+offset_right = 1167.0
+offset_bottom = 662.0
+color = Color(0.91722757, 0.49866545, 0.40019605, 1)
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=1221667018]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Control" unique_id=1507024092]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 1153.0
+offset_bottom = 417.0
+
+[node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer" unique_id=63548491]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/Control/VBoxContainer" unique_id=1250819165]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="ColorRect/Control/VBoxContainer" unique_id=387465453]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="ColorRect/Control/VBoxContainer" unique_id=396059182]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="ColorRect/Control/VBoxContainer" unique_id=133780909]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1121449202]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 100
+text = "Loading Leaderboard..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1809215054]
+
+[node name="HTTPRequest2" type="HTTPRequest" parent="." unique_id=1976079687]
